@@ -1,20 +1,19 @@
 package com.example.clase8.viewmodel
 
+import android.app.Application
+import androidx.lifecycle.AndroidViewModel
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
-import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.example.clase8.model.Inventory
 import com.example.clase8.model.Product
 import com.example.clase8.repository.InventoryRepository
-import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.launch
-import javax.inject.Inject
 
-@HiltViewModel
-class InventoryViewModel @Inject constructor(
-    private val inventoryRepository: InventoryRepository
-) : ViewModel() {
+
+class InventoryViewModel(application: Application) : AndroidViewModel(application) {
+    val context = getApplication<Application>()
+    private val inventoryRepository = InventoryRepository(context)
 
 
     private val _listInventory = MutableLiveData<MutableList<Inventory>>()

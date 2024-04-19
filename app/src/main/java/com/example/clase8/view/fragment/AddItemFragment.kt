@@ -81,7 +81,7 @@ class AddItemFragment : Fragment() {
         inventoryViewModel.listProducts.observe(viewLifecycleOwner){ lista ->
 
             val product = lista[2]
-            Glide.with(binding.root.context).load(product.image).into(binding.ivImagenApi)
+            Glide.with(binding.root.context).load(product.id).into(binding.ivImagenApi)
             binding.tvTitleProduct.text = product.title
         }
     }

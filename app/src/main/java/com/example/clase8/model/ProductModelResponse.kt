@@ -2,13 +2,13 @@ package com.example.clase8.model
 
 import com.google.gson.annotations.SerializedName
 
-data class Product(
+data class ProductModelResponse(
     @SerializedName("id")
     val id:Int,
 
     @SerializedName("title")
     val title: String,
 
-    @SerializedName("image")
+    @SerializedName("images")
     val image:String
 )

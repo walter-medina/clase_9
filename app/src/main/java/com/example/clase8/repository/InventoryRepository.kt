@@ -3,7 +3,7 @@ import android.content.Context
 import com.example.clase8.data.InventoryDB
 import com.example.clase8.data.InventoryDao
 import com.example.clase8.model.Inventory
-import com.example.clase8.model.Product
+import com.example.clase8.model.ProductModelResponse
 import com.example.clase8.webservice.ApiService
 import com.example.clase8.webservice.ApiUtils
 import kotlinx.coroutines.Dispatchers
@@ -36,7 +36,7 @@ class InventoryRepository(val context: Context){
         }
     }
 
-    suspend fun getProducts(): MutableList<Product> {
+    suspend fun getProducts(): MutableList<ProductModelResponse> {
         return withContext(Dispatchers.IO) {
             try {
                 val response = apiService.getProducts()

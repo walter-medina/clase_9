@@ -6,7 +6,7 @@ import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.viewModelScope
 import com.example.clase8.model.Inventory
-import com.example.clase8.model.Product
+import com.example.clase8.model.ProductModelResponse
 import com.example.clase8.repository.InventoryRepository
 import kotlinx.coroutines.launch
 
@@ -23,8 +23,8 @@ class InventoryViewModel(application: Application) : AndroidViewModel(applicatio
     val progresState: LiveData<Boolean> = _progresState
 
     //para almacenar una lista de productos
-    private val _listProducts = MutableLiveData<MutableList<Product>>()
-    val listProducts: LiveData<MutableList<Product>> = _listProducts
+    private val _listProducts = MutableLiveData<MutableList<ProductModelResponse>>()
+    val listProducts: LiveData<MutableList<ProductModelResponse>> = _listProducts
 
     fun saveInventory(inventory: Inventory) {
         viewModelScope.launch {
